@@ -30,27 +30,30 @@ const DeathTollChart = () => {
         <span className="text-lg font-semibold">Death Toll Over Time (Estimates)</span>
       </div>
       <ChartContainer config={chartConfig} className="h-[260px] w-full">
-        <AreaChart data={deathTollData}>
-          <XAxis dataKey="date" stroke="#888" />
-          <YAxis tickFormatter={(val) => `${val / 1000}k`} stroke="#888" />
-          <Area
-            type="monotone"
-            dataKey="deaths"
-            stroke="#E4312B"
-            fill="url(#red-gradient)"
-            fillOpacity={0.5}
-            strokeWidth={3}
-            dot={{ r: 3, fill: "#E4312B" }}
-          />
-          <defs>
-            <linearGradient id="red-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="12%" stopColor="#E4312B" stopOpacity={0.6}/>
-              <stop offset="88%" stopColor="#E4312B" stopOpacity={0.05}/>
-            </linearGradient>
-          </defs>
-        </AreaChart>
-        <ChartTooltipContent />
-        <ChartLegendContent />
+        {/* Wrap chart elements in a fragment to make it a single React element */}
+        <>
+          <AreaChart data={deathTollData}>
+            <XAxis dataKey="date" stroke="#888" />
+            <YAxis tickFormatter={(val) => `${val / 1000}k`} stroke="#888" />
+            <Area
+              type="monotone"
+              dataKey="deaths"
+              stroke="#E4312B"
+              fill="url(#red-gradient)"
+              fillOpacity={0.5}
+              strokeWidth={3}
+              dot={{ r: 3, fill: "#E4312B" }}
+            />
+            <defs>
+              <linearGradient id="red-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="12%" stopColor="#E4312B" stopOpacity={0.6}/>
+                <stop offset="88%" stopColor="#E4312B" stopOpacity={0.05}/>
+              </linearGradient>
+            </defs>
+          </AreaChart>
+          <ChartTooltipContent />
+          <ChartLegendContent />
+        </>
       </ChartContainer>
       <div className="mt-2 text-xs text-muted-foreground text-right">
         Data for illustration only. Source: UN, media reports.
