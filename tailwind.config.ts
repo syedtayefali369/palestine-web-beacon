@@ -28,6 +28,12 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
+				palestine: {
+					red: '#E4312B',
+					green: '#149954',
+					black: '#000000',
+					white: '#FFFFFF'
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
